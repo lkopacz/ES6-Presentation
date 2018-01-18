@@ -4,9 +4,23 @@
 // const being a reference vs something you cannot change. 
 
 
-// Arrow Function
-// Post here what it would be in old school function
+// Arrow Functions
 
+// Before:
+// We have to create a reference to `this` in order to make it available inside the new scope of the anonymous function
+var _this = this
+$('.foo').click(function(event){
+  _this.handleClick();
+})
+
+// After:
+// The scope is not changed inside of the arrow function so `this` is the same inside and out
+$('.foo').click((event) => {
+  this.handleClick();
+})
+
+
+// @todo: make this into a class example?
 const person = {
   age: 28,
   name: 'Lindsey',
@@ -17,7 +31,6 @@ const person = {
 };
 
 // We should also provide an example of how arrow function can be definied in a constant. 
-
 
 
 // Anticipated Question
